@@ -12,49 +12,44 @@ var testString = "";
 var button = document.getElementById("button");
 button.addEventListener("click", function() {
 	testString = document.getElementById("input").value;
-	var para = document.createElement("p");
-	var text = document.createTextNode("");
-	reversal(testString, text);
-	alphabits(testString, text);
-	palindrome(testString, text);
-	document.getElementById("output").appendChild(para); 
+	document.getElementById("reversal");
+	document.getElementById("alphabetical");
+	document.getElementById("palindrome");
+	reversal(testString);
+	alphabits(testString);
+	palindrome(testString);
+	
 	
 	
 });
 
-function enterKeyDown (a) {
-  	if (a.keyCode === 13 && (branchElement === document.activeElement || charElement === document.activeElement)) {
-      	a.preventDefault();
-      	
-  	}
-};
 
 
 
-function reversal(string, text) {
+function reversal(string) {
 	var reverseString = testString.split('').reverse().join('');
-	let output = document.getElementById("output");
-	para.appendChild(output);
+	let output1 = document.getElementById("reversal");
+	output1.innerHTML = reverseString;
 	// output.innerHTML = reverseString;
 	// console.log(reverseString);
 };
 
-function alphabits(string, para) {
+function alphabits(string) {
 	var alphabetical = string.split('').sort().join('');
-	// console.log(alphabetical);
-	let output = document.getElementById("output");
-	// output.innerHTML = alphabetical;
-	para.appendChild(alphabetical);
+	let output2 = document.getElementById("alphabet");
+	output2.innerHTML = alphabetical;
+	
 	
 }
 
-function palindrome(string, para) {
-	var stringArr = string.split('');
+function palindrome(string) {
+	let output3 = document.getElementById("palindrome")
+	var stringArr = string.split('').join('');
 	console.log(stringArr);
-	var reverseString2 = string.split('').reverse();
+	var reverseString2 = string.split('').reverse().join('');
 	console.log(reverseString2);
-	if (stringArr == reverseString2) {
-		console.log("palindrome");
+	if (stringArr === reverseString2) {
+		output3.innerHTML = "Your string is a palidrome"
 	};
 
 };
