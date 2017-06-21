@@ -23,6 +23,20 @@ button.addEventListener("click", function() {
 	
 });
 
+/// I do not know how to combine keypress and click button event listeners YET
+
+function inputKeyUp(e) {
+    e.which = e.which || e.keyCode;
+    if(e.which == 13) {
+        testString = document.getElementById("input").value;
+		document.getElementById("reversal");
+		document.getElementById("alphabetical");
+		document.getElementById("palindrome");
+		reversal(testString);
+		alphabits(testString);
+		palindrome(testString);
+    }
+}
 
 
 
