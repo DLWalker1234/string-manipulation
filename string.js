@@ -12,44 +12,49 @@ var testString = "";
 var button = document.getElementById("button");
 button.addEventListener("click", function() {
 	testString = document.getElementById("input").value;
-	reversal(testString);
-	alphabits(testString);
+	var para = document.createElement("p");
+	var text = document.createTextNode("");
+	reversal(testString, text);
+	alphabits(testString, text);
+	palindrome(testString, text);
+	document.getElementById("output").appendChild(para); 
+	
 	
 });
 
+function enterKeyDown (a) {
+  	if (a.keyCode === 13 && (branchElement === document.activeElement || charElement === document.activeElement)) {
+      	a.preventDefault();
+      	
+  	}
+};
 
 
-function reversal(string) {
+
+function reversal(string, text) {
 	var reverseString = testString.split('').reverse().join('');
 	let output = document.getElementById("output");
-	output.innerHTML = reverseString;
+	para.appendChild(output);
+	// output.innerHTML = reverseString;
 	// console.log(reverseString);
 };
 
-function alphabits(string) {
+function alphabits(string, para) {
 	var alphabetical = string.split('').sort().join('');
 	// console.log(alphabetical);
 	let output = document.getElementById("output");
-	output.innerHTML = alphabetical;
+	// output.innerHTML = alphabetical;
+	para.appendChild(alphabetical);
 	
 }
 
-function palindrome(string) {
+function palindrome(string, para) {
 	var stringArr = string.split('');
 	console.log(stringArr);
 	var reverseString2 = string.split('').reverse();
 	console.log(reverseString2);
-	if (stringArr === reverseString2) {
-		console.log("palindrome")
+	if (stringArr == reverseString2) {
+		console.log("palindrome");
 	};
 
 };
-
-
-
-
-
-
-palindrome(testString);
-
-"MIBO".split("").sort().join("");  // "BIMO"
